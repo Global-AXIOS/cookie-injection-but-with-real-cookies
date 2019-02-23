@@ -52,6 +52,17 @@ var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
 
 
+func _ready():
+	var a = 0
+	#set_process_input(true)
+
+func _physics_process(delta):
+	var space_state = get_world_2d().direct_space_state
+	var pos = self.position
+	
+	var result = space_state.intersect_ray(Vector2(pos[0], pos[1]), Vector2(pos[0] + 100, pos[1]), [self])
+	print(result)
+
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()

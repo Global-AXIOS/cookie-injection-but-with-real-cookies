@@ -2,7 +2,7 @@
 
 [ext_resource path="res://DialogBox.gd" type="Script" id=1]
 
-[node name="Polygon2D" type="Polygon2D" index="0"]
+[node name="Polygon2D" type="Polygon2D"]
 
 modulate = Color( 1, 0.929504, 0.355469, 1 )
 position = Vector2( 10, 230 )
