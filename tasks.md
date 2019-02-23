@@ -2,8 +2,8 @@
 
 ## Game Design
 
-- [ ] Spend some time thinking about what we want it to look like
-- [ ] Clean up basic scene
+- [x] Spend some time thinking about what we want it to look like
+- [x] Clean up basic scene
 - [ ] *Create a dialog screen
 - [ ] Create cookie design elements 
 - [ ] Design Intro level
