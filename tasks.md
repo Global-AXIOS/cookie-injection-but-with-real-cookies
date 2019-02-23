@@ -4,7 +4,7 @@
 
 - [ ] Spend some time thinking about what we want it to look like
 - [ ] Clean up basic scene
-- [ ] Create a dialog screen
+- [ ] *Create a dialog screen
 - [ ] Create cookie design elements 
 - [ ] Design Intro level
 - [ ] Design Intermediante level
@@ -12,10 +12,12 @@
 
 ## Writeup
 
-- [ ] Design 12 or so levels
+- [ ] Design 12 or so levels in writup
+- [ ] Go through PPT and webpage to make sure we cover everything
+  - [ ] Call our proposal a whitepaper
 - [ ] Explain how this could be fully fleshed out
 - [ ] Prove that it is financially viable?
-- [ ] 
+- [ ] Small writeup / real world example for each level
 
 ## Impressions / wants
 
@@ -25,4 +27,5 @@
 - [ ] Encoded cookies 
 - [ ] Man in the middle 
   - Passive MITM, active MITM
-- [ ] Inspecting crums
+  - [ ] Inspecting crums
+  - [ ] Pretent to be a cookie monster
