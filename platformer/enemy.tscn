@@ -206,24 +206,32 @@ blend_times = [  ]
 
 [node name="sprite" type="Sprite" parent="." index="2"]
 
+scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 hframes = 8
 frame = 4
+_sections_unfolded = [ "Transform" ]
 
 [node name="shape1" type="CollisionShape2D" parent="." index="3"]
 
 position = Vector2( -1.08072, -2.16144 )
+scale = Vector2( 5, 5 )
 shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="shape2" type="CollisionShape2D" parent="." index="4"]
 
 position = Vector2( 6.48431, 3.24216 )
+scale = Vector2( 5, 5 )
 shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="shape3" type="CollisionShape2D" parent="." index="5"]
 
 position = Vector2( -12.495, 3.53415 )
+scale = Vector2( 5, 5 )
 shape = SubResource( 4 )
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="raycast_left" type="RayCast2D" parent="." index="6"]
 
