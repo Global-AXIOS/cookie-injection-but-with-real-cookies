@@ -5,7 +5,7 @@
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
 
-[node name="stage" type="Node" index="0"]
+[node name="stage" type="Node"]
 
 [node name="tile_map" type="TileMap" parent="." index="0"]
 
