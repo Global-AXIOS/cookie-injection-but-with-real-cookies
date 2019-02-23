@@ -39,6 +39,7 @@ func _integrate_forces(s):
 	if state == STATE_DYING:
 		new_anim = "explode"
 	elif state == STATE_WALKING:
+		return
 		new_anim = "walk"
 		
 		var wall_side = 0.0
@@ -73,7 +74,7 @@ func _integrate_forces(s):
 			direction = -direction
 			$sprite.scale.x = -direction
 		
-		lv.x = direction * WALK_SPEED
+		lv.x = 0 #direction * WALK_SPEED
 	
 	if anim != new_anim:
 		anim = new_anim
