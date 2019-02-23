@@ -53,13 +53,32 @@ var bullet = preload("res://bullet.tscn")
 var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
 
-onready var dialogue = load("res://DialogBox.tscn").instance()
+onready var dialogue = load("res://DialogBox.tscn")
+
+var current_dialog = null
 
 #var current_dialogue = null
 
 func _ready():
-	var a = 0
-	#set_process_input(true)
+	set_process_input(true)
+
+func _input(event):
+	if Input.is_action_pressed("ui_interact") and not current_dialog:
+		print("UI INTERACT")
+		var new_dialog = dialogue.instance()
+		new_dialog.set_text(["MEMES", "REEEE", "OKKKK"])
+		get_tree().get_root().add_child(new_dialog)
+		new_dialog.position = self.position
+		new_dialog.z_index = self.z_index + 1
+		current_dialog = new_dialog
+		print(new_dialog.position)
+		
+
+func _draw():
+	if current_dialog:
+		current_dialog.position = self.position
+		print(self.position)
+
 
 func _physics_process(delta):
 	#if current_dialogue != null:
@@ -67,7 +86,7 @@ func _physics_process(delta):
 	
 #	if current_dialogue == null:
 #		IN_DIALOGUE = false
-	
+	"""
 	if !IN_DIALOGUE:
 		var space_state = get_world_2d().direct_space_state
 		var pos = self.position
@@ -79,29 +98,16 @@ func _physics_process(delta):
 				var enemy = result["collider"];
 				var dialogue_text = enemy.get_dialog()
 				
-				dialogue.get_child(0).init(dialogue_text)
+				dialogue.get_child(1).init(dialogue_text)
 				
 				dialogue.position = self.position
+				dialogue.z_index = self.z_index + 1
 				
 				print(dialogue)
+				print(dialogue.get_node("notifier").is_on_screen())
 				
 				IN_DIALOGUE = true
-				#var new_dialogue = dialogue.instance()
-				#new_dialogue.get_child(0).init(dialogue_text)
-				
-				#current_dialogue = new_dialogue
-				#current_dialogue.z_index = self.z_index + 10
-				
-				#print(current_dialogue.visible, current_dialogue.z_index)
-				
-				#print(current_dialogue.get_child(0))
-				
-				#for child in range(current_dialogue.get_child_count()):
-			#		print(current_dialogue.get_child(child).visible)
-				
-				#print("New Dialog: ", current_dialogue)
-				#self.add_child(current_dialogue)
-				#print(get_parent().get_children())
+	"""
 		
 		
 
