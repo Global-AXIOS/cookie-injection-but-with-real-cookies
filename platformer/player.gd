@@ -46,22 +46,64 @@ var shoot_time = 1e20
 
 var MAX_SHOOT_POSE_TIME = 0.3
 
+var IN_DIALOGUE = false
+
 var bullet = preload("res://bullet.tscn")
 
 var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
 
+onready var dialogue = load("res://DialogBox.tscn").instance()
+
+#var current_dialogue = null
 
 func _ready():
 	var a = 0
 	#set_process_input(true)
 
 func _physics_process(delta):
-	var space_state = get_world_2d().direct_space_state
-	var pos = self.position
+	#if current_dialogue != null:
+	#	print(self.position, current_dialogue.position)
 	
-	var result = space_state.intersect_ray(Vector2(pos[0], pos[1]), Vector2(pos[0] + 100, pos[1]), [self])
-	print(result)
+#	if current_dialogue == null:
+#		IN_DIALOGUE = false
+	
+	if !IN_DIALOGUE:
+		var space_state = get_world_2d().direct_space_state
+		var pos = self.position
+		
+		var result = space_state.intersect_ray(Vector2(pos[0], pos[1]), Vector2(pos[0] + 100, pos[1]), [self])
+		
+		if result.has("collider"):
+			if result["collider"].get_name() == "enemy":
+				var enemy = result["collider"];
+				var dialogue_text = enemy.get_dialog()
+				
+				dialogue.get_child(0).init(dialogue_text)
+				
+				dialogue.position = self.position
+				
+				print(dialogue)
+				
+				IN_DIALOGUE = true
+				#var new_dialogue = dialogue.instance()
+				#new_dialogue.get_child(0).init(dialogue_text)
+				
+				#current_dialogue = new_dialogue
+				#current_dialogue.z_index = self.z_index + 10
+				
+				#print(current_dialogue.visible, current_dialogue.z_index)
+				
+				#print(current_dialogue.get_child(0))
+				
+				#for child in range(current_dialogue.get_child_count()):
+			#		print(current_dialogue.get_child(child).visible)
+				
+				#print("New Dialog: ", current_dialogue)
+				#self.add_child(current_dialogue)
+				#print(get_parent().get_children())
+		
+		
 
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
