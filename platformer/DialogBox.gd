@@ -22,6 +22,8 @@ func _input(event):
 				page += 1
 				set_bbcode(dialog_text[page])
 				set_visible_characters(0)
+		else:
+			set_visible_characters(get_total_character_count() + 1)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
