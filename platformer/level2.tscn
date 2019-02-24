@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
@@ -19,6 +19,14 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 15
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="stage" type="Node" index="0"]
 
@@ -293,6 +301,33 @@ visible = false
 [node name="Polygon2D" parent="player" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( -233.684, -655.6 )
+
+[node name="Button" type="Button" parent="." index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1592.0
+margin_top = 986.0
+margin_right = 1699.0
+margin_bottom = 1045.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Next Level"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="pressed" from="Furnace" to="player" method="_on_Furnace_pressed"]
 
