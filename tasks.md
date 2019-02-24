@@ -4,8 +4,8 @@
 
 - [x] Spend some time thinking about what we want it to look like
 - [x] Clean up basic scene
-- [ ] *Create a dialog screen
-- [ ] Create cookie design elements 
+- [x] *Create a dialog screen
+- [x] Create cookie design elements 
 - [ ] Design Intro level
 - [ ] Design Intermediante level
 - [ ] Desing Advanced level
