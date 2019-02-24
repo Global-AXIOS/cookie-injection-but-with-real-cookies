@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ing.tscn" type="PackedScene" id=6]
-[ext_resource path="res://furnace.png" type="Texture" id=7]
-[ext_resource path="res://Furnace.gd" type="Script" id=8]
+[ext_resource path="res://ing.tscn" type="PackedScene" id=3]
+[ext_resource path="res://furnace.png" type="Texture" id=4]
+[ext_resource path="res://Furnace.gd" type="Script" id=5]
+[ext_resource path="res://PxPlus_IBM_MDA.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
 [node name="stage" type="Node" index="0"]
 
@@ -47,8 +56,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 152.0
-margin_top = 896.0
+margin_left = 130.0
+margin_top = 847.0
 margin_right = 445.0
 margin_bottom = 1085.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -59,26 +68,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 1, 1, 1, 1 )
 
-[node name="player" parent="." index="3" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-position = Vector2( 550.915, 1041.24 )
-
-[node name="Dialog" parent="player/camera" index="0"]
-
-visible = false
-
-[node name="Polygon2D" parent="player" index="8" instance=ExtResource( 4 )]
-
-position = Vector2( -233.684, -655.6 )
-
-[node name="enemy" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 971.054, 1003.89 )
-mode = 1
-_sections_unfolded = [ "Collision", "Pause", "Pickable" ]
-
-[node name="Peanut Butter" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Peanut Butter" parent="." index="3" instance=ExtResource( 3 )]
 
 [node name="label" parent="Peanut Butter" index="0"]
 
@@ -101,7 +91,7 @@ margin_top = 903.0
 margin_right = 353.0
 margin_bottom = 937.0
 
-[node name="Oatmeal" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Oatmeal" parent="." index="4" instance=ExtResource( 3 )]
 
 [node name="label" parent="Oatmeal" index="0"]
 
@@ -124,7 +114,7 @@ margin_top = 985.0
 margin_right = 352.0
 margin_bottom = 1019.0
 
-[node name="Rasins" parent="." index="7" instance=ExtResource( 6 )]
+[node name="Rasins" parent="." index="5" instance=ExtResource( 3 )]
 
 [node name="label" parent="Rasins" index="0"]
 
@@ -147,11 +137,11 @@ margin_top = 1025.0
 margin_right = 352.0
 margin_bottom = 1059.0
 
-[node name="Chocolate Chips" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Chocolate Chips" parent="." index="6" instance=ExtResource( 3 )]
 
 [node name="label" parent="Chocolate Chips" index="0"]
 
-margin_left = 155.0
+margin_left = 138.0
 margin_top = 950.0
 margin_right = 276.0
 margin_bottom = 971.0
@@ -170,7 +160,7 @@ margin_top = 945.0
 margin_right = 353.0
 margin_bottom = 979.0
 
-[node name="Furnace" type="TextureButton" parent="." index="9"]
+[node name="Furnace" type="TextureButton" parent="." index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -191,13 +181,94 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 7 )
-script = ExtResource( 8 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
 
+[node name="OvenLabel" type="RichTextLabel" parent="." index="8"]
 
-[editable path="player"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 131.0
+margin_top = 858.0
+margin_right = 445.0
+margin_bottom = 898.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]COOKIE OVEN[/center]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "COOKIE OVEN"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
+
+[node name="BakeLabel" type="RichTextLabel" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 336.0
+margin_top = 949.0
+margin_right = 441.0
+margin_bottom = 982.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]BAKE[/center]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "BAKE"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
+
+[node name="player" parent="." index="10" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+position = Vector2( 550.915, 1041.24 )
+
+[node name="Dialog" parent="player/camera" index="0"]
+
+visible = false
+
+[node name="Polygon2D" parent="player" index="8" instance=ExtResource( 8 )]
+
+position = Vector2( -233.684, -655.6 )
+
+[node name="enemy" parent="." index="11" instance=ExtResource( 9 )]
+
+position = Vector2( 971.054, 1003.89 )
+mode = 1
+_sections_unfolded = [ "Collision", "Pause", "Pickable" ]
+
+
 [editable path="Peanut Butter"]
 [editable path="Oatmeal"]
 [editable path="Rasins"]
 [editable path="Chocolate Chips"]
+[editable path="player"]

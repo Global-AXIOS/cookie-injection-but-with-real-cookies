@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://label.gd" type="Script" id=1]
-[ext_resource path="res://plus.png" type="Texture" id=2]
-[ext_resource path="res://minus.png" type="Texture" id=3]
+[ext_resource path="res://PxPlus_IBM_MDA.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://label.gd" type="Script" id=2]
+[ext_resource path="res://plus.png" type="Texture" id=3]
+[ext_resource path="res://minus.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 12
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Node" type="Node"]
 
@@ -22,6 +31,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[right]Penut Butter[/right]"
@@ -34,8 +44,8 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 1 )
-_sections_unfolded = [ "BBCode", "Grow Direction", "Margin", "custom_colors" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "BBCode", "Grow Direction", "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="plus" type="TextureButton" parent="." index="1"]
 
@@ -58,7 +68,7 @@ toggle_mode = false
 enabled_focus_mode = 1
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
@@ -83,7 +93,7 @@ toggle_mode = false
 enabled_focus_mode = 1
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 4 )
 expand = true
 _sections_unfolded = [ "Textures" ]
 
