@@ -80,9 +80,9 @@ _sections_unfolded = [ "Collision", "Pause", "Pickable" ]
 
 [node name="label" parent="Peanut Butter" index="0"]
 
-margin_left = 161.0
+margin_left = 159.0
 margin_top = 910.0
-margin_right = 278.0
+margin_right = 276.0
 margin_bottom = 931.0
 
 [node name="plus" parent="Peanut Butter" index="1"]
@@ -99,30 +99,78 @@ margin_top = 903.0
 margin_right = 353.0
 margin_bottom = 937.0
 
-[node name="Chocolate Chips" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Oatmeal" parent="." index="6" instance=ExtResource( 6 )]
+
+[node name="label" parent="Oatmeal" index="0"]
+
+margin_left = 167.0
+margin_top = 991.0
+margin_right = 276.0
+margin_bottom = 1012.0
+
+[node name="plus" parent="Oatmeal" index="1"]
+
+margin_left = 279.0
+margin_top = 986.0
+margin_right = 311.0
+margin_bottom = 1016.0
+
+[node name="minus" parent="Oatmeal" index="2"]
+
+margin_left = 314.0
+margin_top = 985.0
+margin_right = 352.0
+margin_bottom = 1019.0
+
+[node name="Rasins" parent="." index="7" instance=ExtResource( 6 )]
+
+[node name="label" parent="Rasins" index="0"]
+
+margin_left = 166.0
+margin_top = 1031.0
+margin_right = 275.0
+margin_bottom = 1052.0
+
+[node name="plus" parent="Rasins" index="1"]
+
+margin_left = 279.0
+margin_top = 1026.0
+margin_right = 311.0
+margin_bottom = 1056.0
+
+[node name="minus" parent="Rasins" index="2"]
+
+margin_left = 314.0
+margin_top = 1025.0
+margin_right = 352.0
+margin_bottom = 1059.0
+
+[node name="Chocolate Chips" parent="." index="8" instance=ExtResource( 6 )]
 
 [node name="label" parent="Chocolate Chips" index="0"]
 
-margin_left = 157.0
-margin_top = 941.0
-margin_right = 278.0
-margin_bottom = 962.0
+margin_left = 155.0
+margin_top = 950.0
+margin_right = 276.0
+margin_bottom = 971.0
 
 [node name="plus" parent="Chocolate Chips" index="1"]
 
-margin_left = 279.0
-margin_top = 937.0
-margin_right = 311.0
-margin_bottom = 967.0
+margin_left = 280.0
+margin_top = 946.0
+margin_right = 312.0
+margin_bottom = 976.0
 
 [node name="minus" parent="Chocolate Chips" index="2"]
 
-margin_left = 314.0
-margin_top = 936.0
-margin_right = 352.0
-margin_bottom = 970.0
+margin_left = 315.0
+margin_top = 945.0
+margin_right = 353.0
+margin_bottom = 979.0
 
 
 [editable path="player"]
 [editable path="Peanut Butter"]
+[editable path="Oatmeal"]
+[editable path="Rasins"]
 [editable path="Chocolate Chips"]
