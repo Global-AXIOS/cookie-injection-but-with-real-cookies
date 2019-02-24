@@ -1,0 +1,323 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://robot_sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Dialog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sound_shoot.wav" type="AudioStream" id=4]
+[ext_resource path="res://sound_jump.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+
+length = 0.01
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 22 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+length = 0.01
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 21 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 26 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 7.0
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.25, 1.5, 2, 4.5, 4.75, 5, 5.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 16, 19, 20, 19, 16 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 25 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 24, 23 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 26 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 1.25
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+
+length = 1.25
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+
+length = 1.25
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 5 ]
+}
+
+[sub_resource type="RayShape2D" id=11]
+
+custom_solver_bias = 0.5
+length = 20.0
+
+[node name="player" type="RigidBody2D" index="0"]
+
+position = Vector2( 390, 180 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 3.0
+friction = 0.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = true
+continuous_cd = 0
+contacts_reported = 3
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="sprite" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="anim" type="AnimationPlayer" parent="." index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/crouch = SubResource( 1 )
+anims/falling = SubResource( 2 )
+anims/falling_weapon = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/idle_weapon = SubResource( 5 )
+anims/jumping = SubResource( 6 )
+anims/jumping_weapon = SubResource( 7 )
+anims/run = SubResource( 8 )
+anims/run_weapon = SubResource( 9 )
+anims/standing_weapon_ready = SubResource( 10 )
+blend_times = [  ]
+
+[node name="camera" type="Camera2D" parent="." index="2"]
+
+offset = Vector2( 0, -70 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = 0
+limit_top = 0
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Offset" ]
+
+[node name="Dialog" parent="camera" index="0" instance=ExtResource( 3 )]
+
+margin_left = -380.0
+margin_top = 73.0
+margin_right = 378.0
+margin_bottom = 153.0
+
+[node name="text" parent="camera/Dialog" index="0"]
+
+margin_left = 18.0
+margin_top = 27.0
+margin_right = 756.0
+margin_bottom = 57.0
+
+[node name="space_continue" parent="camera/Dialog" index="2"]
+
+margin_left = 528.0
+margin_right = 748.0
+
+[node name="bullet_shoot" type="Position2D" parent="." index="3"]
+
+position = Vector2( 31.2428, 4.08784 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( 0.291992, -12.1587 )
+scale = Vector2( 1, 1.76469 )
+shape = SubResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.138023, 16.5036, -19.902, -24.8691, 19.3625, -24.6056 )
+
+[node name="sound_shoot" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="sound_jump" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+
+[editable path="camera/Dialog"]

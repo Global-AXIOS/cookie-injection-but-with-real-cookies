@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="stage" type="Node"]
+[node name="stage" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
