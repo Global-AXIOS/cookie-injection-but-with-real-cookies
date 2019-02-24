@@ -15,10 +15,15 @@ onready var rc_right = $raycast_right
 var WALK_SPEED = 50
 
 var bullet_class = preload("res://bullet.gd")
+var dialog_box = preload("res://DialogBox.tscn")
+var text = ["I am a big bad cookie monster who loves Cookies!", "Give me only the best cookies to pass!!!!"]
 
+func get_dialog():
+	return text 
 
 func _die():
 	queue_free()
+
 
 
 func _pre_explode():

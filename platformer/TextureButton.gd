@@ -1,4 +1,4 @@
-extends Polygon2D
+extends TextureButton
 
 # class member variables go here, for example:
 # var a = 2
@@ -9,12 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 
-func set_text(text):
-	var text_box = self.get_node("text_box")
-	text_box.dialog_text = text
-	text_box.page = 0
-
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+func _pressed():
+	print("FUCK YEAH")

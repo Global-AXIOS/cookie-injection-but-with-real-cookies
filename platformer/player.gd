@@ -46,11 +46,77 @@ var shoot_time = 1e20
 
 var MAX_SHOOT_POSE_TIME = 0.3
 
+var IN_DIALOGUE = false
+
 var bullet = preload("res://bullet.tscn")
 
 var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
+#var current_dialogue = null
 
+func _ready():
+	set_process_input(true)
+	var text = get_node("camera/Dialog/text")
+	text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
+	
+
+func _input(event):
+	if Input.is_action_just_pressed("ui_interact"):
+		var text = get_node("camera/Dialog/text")
+		var dialog = get_node("camera/Dialog")
+		
+		if not IN_DIALOGUE:
+			IN_DIALOGUE = true
+			dialog.show()
+			text._input(event)
+		elif text.is_finished():
+			text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
+			dialog.hide()
+			IN_DIALOGUE = false
+	
+
+
+func _physics_process(delta):
+	#print(get_node("camera/Dialog/text").dialog_text)
+	#var camera = get_node("camera")
+	#print(camera)
+	#print(get_node("camera/Dialog").get_viewport_transform(), " ", self.position)
+	#if current_dialog:
+	#	print(current_dialog.position)
+	#var camera = get_node("camera")
+	#var new_pos = camera.get_camera_screen_center()
+	
+	#if current_dialog:
+	#	current_dialog.position = new_pos
+	#if current_dialogue != null:
+	#	print(self.position, current_dialogue.position)
+	
+#	if current_dialogue == null:
+#		IN_DIALOGUE = false
+	"""
+	if !IN_DIALOGUE:
+		var space_state = get_world_2d().direct_space_state
+		var pos = self.position
+		
+		var result = space_state.intersect_ray(Vector2(pos[0], pos[1]), Vector2(pos[0] + 100, pos[1]), [self])
+		
+		if result.has("collider"):
+			if result["collider"].get_name() == "enemy":
+				var enemy = result["collider"];
+				var dialogue_text = enemy.get_dialog()
+				
+				dialogue.get_child(1).init(dialogue_text)
+				
+				dialogue.position = self.position
+				dialogue.z_index = self.z_index + 1
+				
+				print(dialogue)
+				print(dialogue.get_node("notifier").is_on_screen())
+				
+				IN_DIALOGUE = true
+	"""
+		
+		
 
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
