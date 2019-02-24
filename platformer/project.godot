@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Dynamic Character Control-Based Platformer"
+config/name="Cookie Injection but with Real Cookies"
 run/main_scene="res://level1.tscn"
 config/icon="res://icon.png"
 
