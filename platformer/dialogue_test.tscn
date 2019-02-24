@@ -269,7 +269,7 @@ texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures" ]
 
 [node name="OvenLabel" type="RichTextLabel" parent="." index="8"]
 

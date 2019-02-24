@@ -69,6 +69,7 @@ func _ready():
 	set_process_input(true)
 
 func pass_test_one(l):
+	print("Pass Test One: ", l[0] == 3 && l[1] == 0 && l[2] == 0 && l[3] == 0)
 	return l[0] == 3 && l[1] == 0 && l[2] == 0 && l[3] == 0
 
 
@@ -77,6 +78,8 @@ func get_cookie_values():
 	var pb = get_parent().get_node("Peanut Butter/label").get_t();
 	var oat = get_parent().get_node("Oatmeal/label").get_t();
 	var ras = get_parent().get_node("Rasins/label").get_t(); 
+	
+	print("Cookie Values: ", [cc, pb, oat, ras])
 	return [cc, pb, oat, ras]
 
 
