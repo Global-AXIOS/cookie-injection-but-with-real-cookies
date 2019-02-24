@@ -157,6 +157,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
+_sections_unfolded = [ "Initial Velocity", "Resource" ]
 
 [node name="enemy" type="RigidBody2D"]
 
@@ -214,21 +215,21 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="shape1" type="CollisionShape2D" parent="." index="3"]
 
-position = Vector2( -1.08072, -2.16144 )
+position = Vector2( -60, 10 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="shape2" type="CollisionShape2D" parent="." index="4"]
 
-position = Vector2( 6.48431, 3.24216 )
+position = Vector2( 50, 10 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="shape3" type="CollisionShape2D" parent="." index="5"]
 
-position = Vector2( -12.495, 3.53415 )
+position = Vector2( -10, -10 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 4 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -270,6 +271,7 @@ texture = ExtResource( 3 )
 normal_map = null
 h_frames = 1
 v_frames = 1
+_sections_unfolded = [ "Process Material" ]
 
 [node name="sound_hit" type="AudioStreamPlayer2D" parent="." index="9"]
 

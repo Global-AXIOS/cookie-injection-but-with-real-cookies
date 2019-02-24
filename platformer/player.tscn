@@ -243,7 +243,7 @@ length = 20.0
 
 [node name="player" type="RigidBody2D"]
 
-position = Vector2( 380, 180 )
+position = Vector2( 390, 180 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -317,6 +317,7 @@ blend_times = [  ]
 
 [node name="camera" type="Camera2D" parent="." index="2"]
 
+offset = Vector2( 0, -70 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -339,18 +340,26 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin" ]
+_sections_unfolded = [ "Drag Margin", "Offset" ]
 
 [node name="Dialog" parent="camera" index="0" instance=ExtResource( 4 )]
 
-margin_left = -370.0
-margin_top = 100.0
-margin_right = 409.0
-margin_bottom = 180.0
+margin_left = -380.0
+margin_top = 73.0
+margin_right = 378.0
+margin_bottom = 153.0
 
 [node name="text" parent="camera/Dialog" index="0"]
 
-margin_right = 769.0
+margin_left = 18.0
+margin_top = 27.0
+margin_right = 756.0
+margin_bottom = 57.0
+
+[node name="space_continue" parent="camera/Dialog" index="2"]
+
+margin_left = 528.0
+margin_right = 748.0
 
 [node name="bullet_shoot" type="Position2D" parent="." index="3"]
 

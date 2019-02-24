@@ -54,69 +54,86 @@ var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
 #var current_dialogue = null
 
+var text_list = [["", "Muahahaha!!!!", "I am THE COOKIE MONSTER!", "Give ME a cookie with 3 CHOCOLATE CHIPS", "NOW!!!!!"],
+["WOW!!!", "COOKIE is DELICIOUS", "MANY THANKS. HERE'S THE CRUMBS AS A REWARD", "OH, YOU MAY ALSO PASS!"],
+["BLECH!!!", "DISGUSTING", "TRY AGAIN WEAKLING"],
+["YOU CAN PASS", "NOW LEAVE ME TO EAT, BEFORE I CHANGE MY APPETITE!"]]
+onready var monster = get_parent().get_node("enemy")
+
+
+var dialog_state = -1
+
+var has_cookie = false
+
 func _ready():
 	set_process_input(true)
+
+func pass_test_one(l):
+	return l[0] == 3 && l[1] == 0 && l[2] == 0 && l[3] == 0
+
+
+func get_cookie_values():
+	var cc = get_parent().get_node("Chocolate Chips/label").get_t();
+	var pb = get_parent().get_node("Peanut Butter/label").get_t();
+	var oat = get_parent().get_node("Oatmeal/label").get_t();
+	var ras = get_parent().get_node("Rasins/label").get_t(); 
+	return [cc, pb, oat, ras]
+
+
+
+func change_state(state):
 	var text = get_node("camera/Dialog/text")
-	text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
 	
+	match state:
+		-1:
+			dialog_state = 0
+			text.set_text(text_list[dialog_state])
+		0:
+			# Good path, finished
+			if has_cookie:
+				dialog_state = 1
+				text.set_text(text_list[dialog_state])
+			# Bad path, needs to try again
+			else:
+				dialog_state = 2
+				text.set_text(text_list[dialog_state])
+		1:
+			# Finished, don't ask me again
+			dialog_state = 3
+			text.set_text(text_list[dialog_state])
+		2:
+			# Made good cookie again
+			if has_cookie:
+				dialog_state = 1
+				text.set_text(text_list[dialog_state])
+			# Bad path, needs to try again, again!!!!
+			else:
+				dialog_state = 2
+				text.set_text(text_list[dialog_state])
+		3:
+			# Do nothing, keep don't asking me again.
+			pass
+			
+
+func within_distance():
+	return monster.get_global_position().distance_to(self.get_global_position()) < 250
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_interact"):
+	#print(within_distance())
+	
+	if Input.is_action_just_pressed("ui_interact") and within_distance():
 		var text = get_node("camera/Dialog/text")
 		var dialog = get_node("camera/Dialog")
 		
 		if not IN_DIALOGUE:
 			IN_DIALOGUE = true
+			change_state(dialog_state)
 			dialog.show()
 			text._input(event)
 		elif text.is_finished():
-			text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
+			# text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
 			dialog.hide()
 			IN_DIALOGUE = false
-	
-
-
-func _physics_process(delta):
-	#print(get_node("camera/Dialog/text").dialog_text)
-	#var camera = get_node("camera")
-	#print(camera)
-	#print(get_node("camera/Dialog").get_viewport_transform(), " ", self.position)
-	#if current_dialog:
-	#	print(current_dialog.position)
-	#var camera = get_node("camera")
-	#var new_pos = camera.get_camera_screen_center()
-	
-	#if current_dialog:
-	#	current_dialog.position = new_pos
-	#if current_dialogue != null:
-	#	print(self.position, current_dialogue.position)
-	
-#	if current_dialogue == null:
-#		IN_DIALOGUE = false
-	"""
-	if !IN_DIALOGUE:
-		var space_state = get_world_2d().direct_space_state
-		var pos = self.position
-		
-		var result = space_state.intersect_ray(Vector2(pos[0], pos[1]), Vector2(pos[0] + 100, pos[1]), [self])
-		
-		if result.has("collider"):
-			if result["collider"].get_name() == "enemy":
-				var enemy = result["collider"];
-				var dialogue_text = enemy.get_dialog()
-				
-				dialogue.get_child(1).init(dialogue_text)
-				
-				dialogue.position = self.position
-				dialogue.z_index = self.z_index + 1
-				
-				print(dialogue)
-				print(dialogue.get_node("notifier").is_on_screen())
-				
-				IN_DIALOGUE = true
-	"""
-		
-		
 
 func _integrate_forces(s):
 	var lv = s.get_linear_velocity()
@@ -128,7 +145,7 @@ func _integrate_forces(s):
 	# Get the controls
 	var move_left = Input.is_action_pressed("move_left")
 	var move_right = Input.is_action_pressed("move_right")
-	var jump = Input.is_action_pressed("jump")
+	var jump = false
 	var shoot = Input.is_action_pressed("shoot")
 	var spawn = Input.is_action_pressed("spawn")
 	
@@ -284,3 +301,8 @@ func _integrate_forces(s):
 	# Finally, apply gravity and set back the linear velocity
 	lv += s.get_total_gravity() * step
 	s.set_linear_velocity(lv)
+
+
+func _on_Furnace_pressed():
+	get_parent().get_node("Furnace").release_focus()
+	has_cookie = pass_test_one(get_cookie_values())
