@@ -35,3 +35,5 @@ func _on_minus_pressed():
 		t = max(t - 1, 0)
 		p()
 	pass # replace with function body
+func get_t():
+	return t

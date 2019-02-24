@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ing.tscn" type="PackedScene" id=6]
+[ext_resource path="res://furnace.png" type="Texture" id=7]
+[ext_resource path="res://Furnace.gd" type="Script" id=8]
 
 [node name="stage" type="Node" index="0"]
 
@@ -167,6 +169,31 @@ margin_left = 315.0
 margin_top = 945.0
 margin_right = 353.0
 margin_bottom = 979.0
+
+[node name="Furnace" type="TextureButton" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 366.0
+margin_top = 971.0
+margin_right = 414.0
+margin_bottom = 1019.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+script = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
 
 
 [editable path="player"]
