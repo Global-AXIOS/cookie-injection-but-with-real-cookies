@@ -64,6 +64,10 @@ color = Color( 1, 1, 1, 1 )
 
 position = Vector2( 550.915, 1041.24 )
 
+[node name="Dialog" parent="player/camera" index="0"]
+
+visible = false
+
 [node name="Polygon2D" parent="player" index="8" instance=ExtResource( 4 )]
 
 position = Vector2( -233.684, -655.6 )
@@ -127,3 +131,4 @@ script = ExtResource( 9 )
 _sections_unfolded = [ "Textures" ]
 
 
+[editable path="player"]
