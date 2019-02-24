@@ -54,7 +54,7 @@ var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
 #var current_dialogue = null
 
-var text_list = [["Muahahaha!!!!", "WELCOME TO MY BRIDGE!", "PAY ME OATMEAL AND CHOCOLATE CHIP COOKIE", "NOW!!!"],
+var text_list = [["", "Muahahaha!!!!", "WELCOME TO MY BRIDGE!", "PAY ME RAISIN AND CHOCOLATE CHIP COOKIE", "NOW!!!"],
 ["THANK YOU!!!", "COOKIE IS DELICIOUS", "PLEASE COME AGAIN, MORE COOKIES BETTER"],
 ["BLECH!!!", "DISGUSTING", "YOU CALL THIS A COOKIE!?!?"],
 ["YOU MAY PASS", "NOW I WILL EAT BETTER COOKIE!", "DO NOT TELL OTHERS MY SECRET COOKIE LOVE"]]
@@ -70,12 +70,12 @@ func _ready():
 	set_process_input(true)
 
 func pass_test_two_real(l):
-	print("Pass Test Two: ", l[0] == 0 && l[1] > 0 && l[2] == 0 && l[3] == 0)
-	return l[0] == 0 && l[1] > 0 && l[2] == 0 && l[3] == 0
+	print("Pass Test Two Real: ", l[0] == 0 && l[1] == 0 && l[2] > 0 && l[3] == 0)
+	return l[0] == 0 && l[1] == 0 && l[2] > 0 && l[3] == 0
 
 func pass_test_two_fake(l):
-	print("Pass Test Two: ", l[0] > 0 && l[1] == 0 && l[2] > 0 && l[3] == 0)
-	return l[0] > 0 && l[1] == 0 && l[2] > 0 && l[3] == 0
+	print("Pass Test Two: ", l[0] > 0 && l[1] == 0 && l[2] == 0 && l[3] > 0)
+	return l[0] > 0 && l[1] == 0 && l[2] == 0 && l[3] > 0
 
 
 func get_cookie_values():
@@ -149,6 +149,7 @@ func _input(event):
 			IN_DIALOGUE = true
 			change_state(dialog_state)
 			dialog.show()
+			text.draw_oneshot()
 			#text._input(event)
 		elif text.is_finished():
 			# text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])

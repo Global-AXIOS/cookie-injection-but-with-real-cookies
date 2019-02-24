@@ -55,7 +55,7 @@ onready var enemy = load("res://enemy.tscn")
 #var current_dialogue = null
 
 var text_list = [["", "Muahahaha!!!!", "I am THE COOKIE MONSTER!", "Give ME a cookie with 3 CHOCOLATE CHIPS", "NOW!!!!!"],
-["WOW!!!", "COOKIE is DELICIOUS", "MANY THANKS. HERE'S THE CRUMBS AS A REWARD", "OH, YOU MAY ALSO PASS!"],
+["WOW!!!", "COOKIE is DELICIOUS", "MANY THANKS. CRUMBS ARE REWARD!", "OH, YOU MAY ALSO PASS!"],
 ["BLECH!!!", "DISGUSTING", "TRY AGAIN WEAKLING"],
 ["YOU CAN PASS", "NOW LEAVE ME TO EAT, BEFORE I CHANGE MY APPETITE!"]]
 onready var monster = get_parent().get_node("enemy")
