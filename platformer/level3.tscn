@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
@@ -8,9 +8,10 @@
 [ext_resource path="res://FurnaceParticles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://PxPlus_IBM_MDA.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://playerl2.gd" type="Script" id=10]
-[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=11]
+[ext_resource path="res://robot_sprite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://playerl2.gd" type="Script" id=11]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -280,17 +281,20 @@ position = Vector2( -23, 0 )
 
 _sections_unfolded = [ "Material" ]
 
-[node name="player" parent="." index="11" instance=ExtResource( 9 )]
+[node name="sprite" parent="." index="11" instance=ExtResource( 9 )]
 
-editor/display_folded = true
-position = Vector2( 550.915, 1042.24 )
-script = ExtResource( 10 )
+position = Vector2( 728.372, 1044.87 )
+
+[node name="player" parent="." index="12" instance=ExtResource( 10 )]
+
+position = Vector2( 550.915, 1041.71 )
+script = ExtResource( 11 )
 
 [node name="Dialog" parent="player/camera" index="0"]
 
 visible = false
 
-[node name="Polygon2D" parent="player" index="8" instance=ExtResource( 11 )]
+[node name="Polygon2D" parent="player" index="8" instance=ExtResource( 12 )]
 
 position = Vector2( -233.684, -655.6 )
 
