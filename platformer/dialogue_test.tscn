@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://MinusCChips.gd" type="Script" id=8]
 [ext_resource path="res://plus.png" type="Texture" id=9]
 [ext_resource path="res://TextureButton.gd" type="Script" id=10]
+[ext_resource path="res://ing.tscn" type="PackedScene" id=11]
 
 [node name="stage" type="Node" index="0"]
 
@@ -163,9 +164,33 @@ expand = true
 script = ExtResource( 10 )
 _sections_unfolded = [ "Textures" ]
 
+[node name="Peanut Butter" parent="." index="8" instance=ExtResource( 11 )]
+
+[node name="label" parent="Peanut Butter" index="0"]
+
+margin_left = 158.0
+margin_top = 934.0
+margin_right = 267.0
+margin_bottom = 955.0
+
+[node name="plus" parent="Peanut Butter" index="1"]
+
+margin_left = 261.0
+margin_top = 926.0
+margin_right = 293.0
+margin_bottom = 956.0
+
+[node name="minus" parent="Peanut Butter" index="2"]
+
+margin_left = 296.0
+margin_top = 925.0
+margin_right = 334.0
+margin_bottom = 959.0
+
 [connection signal="pressed" from="MinusCChips" to="CChipsLabel" method="_on_MinusCChips_pressed"]
 
 [connection signal="pressed" from="PlusCChips" to="CChipsLabel" method="_on_PlusCChips_pressed"]
 
 
 [editable path="player"]
+[editable path="Peanut Butter"]
