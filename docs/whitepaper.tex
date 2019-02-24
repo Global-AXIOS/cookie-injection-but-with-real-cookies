@@ -1,6 +1,12 @@
 \documentclass{article}
 \usepackage{graphicx}
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 \begin{document}
 
 \title{Cookie Injection but with Real Cookies}
@@ -10,26 +16,40 @@
 
 \begin{abstract}
   
-\textit{Cookie Injection but with Real Cookies} is a
-game designed to teach the basics of web explotation to 3rd through
-6th grades through the analogy of actual cookies. The game is broken
-down into several \textbf{stages}, each teaching a important lesson in
-cybersecurity. While primarily cookie-based vulnerabilities are
-explored, MITM attacks, encryption, SQL/templete injection and other
-security explotations. At each stage, the player must bake a cookie
-that is pleasing to the \textbf{cookie monster}. In this senario, the
-player repersents a computer client, while the cookie monster plays
-the role an authentication server. Upon propper presentation of a
-cookie, the player can move on to the next stage. Additionally, at
-every stage, there is a link to real world examples and applicable
-additional information.
+\textit{Cookie Injection but with Real Cookies} is a puzzele game
+designed to teach the basics of web exploitation to $3^{rd}$ through
+$6^{th}$ grades through the analogy of actual cookies. The game is
+broken down into several \textbf{stages}, each teaching a important
+lesson in cybersecurity. This allows us to explore cookie injection,
+MITM attacks, encryption, SQL/template injection and other security
+exploitations. At each stage, the player must bake a cookie that is
+pleasing to the \textbf{cookie monster}. In this scenario, the player
+represents a computer client, while the cookie monster plays the role
+an authentication server. Upon proper presentation of a cookie, the
+player can move on to the next stage. All external assets and code is
+either public domain or licensed under the open source MIT or GPL
+licenses, including the \href{https://godotengine.org}{Godot} game
+engine.
+
+
 
 \end{abstract}
 
-\section{Stages}
+\section{Inspiration}
+
+Our goal is to teach children from about the $3^{rd}$ grade to
+$7^{th}$ grade about critical thinking skills involved in the cybersecurity
+field. While some of the concepts are (hopefully) not prevalent in
+production today, teach the same type of problem solving mindset that
+needs to be taught. By using cookies analogously with HTTP requests,
+we can learn about many concepts that will be handy as the player
+progresses to CTFs and hopefully to a larger carrier in the cyber
+industry. 
+
+\section{Example Stages}
 
 The \textbf{difficulty} defines at what approximate age will the stage
-be trivial. This is not at all the minimum age to be able to acomplish
+be trivial. This is not at all the minimum age to be able to accomplish
 the level with understanding, a much younger child will be able to do
 this, just less trivially. These are also our best estimates, not a
 scientific analysis of difficulty.
@@ -42,13 +62,13 @@ Additionally, each stage has a \textbf{learning significance},
 explaining why the concept taught is important in the world of
 security. While sometimes these will feel far fetched from the basic
 actions preformed by the user, the important part is giving the player
-some concpet (even if it is subconcious) about the important security
+some concept (even if it is subconscious) about the important security
 issues facing the web today.
 
-\subsection{Stage 1: Introduciton | Difficulty: 3rd Grade}
+\subsection{Introduction | Difficulty: Third Grade}
 
 Stage one is the most basic of stages. The player simply goes up to
-the cookie monster, who then diplays a messeage requesting a chocolate
+the cookie monster, who then displays a message requesting a chocolate
 chip cookie. The player has to go to the oven and make a simple
 chocolate chip cookie, which he can give to the cookie monster to pass
 through the stage.
@@ -57,14 +77,14 @@ through the stage.
 
 \begin{itemize}
 
-  \item Introduce the player to the dialog, controls, and playstyle of
+  \item Introduce the player to the dialog, controls, and play style of
 the game
   \item Provide an example of a successful stage
-  \item Provide an example of a situation where you are sucessfully
-loging into a website with no web exploitation used.
+  \item Provide an example of a situation where you are successfully
+logging into a website with no web exploitation used.
 \end{itemize}
 
-\subsubsection{Learining Significance}
+\subsubsection{Learning Significance}
 
 \begin{itemize}
   \item Introduce the idea of the client server model
@@ -73,15 +93,75 @@ loging into a website with no web exploitation used.
   \item Introduce the idea of what an API call is
 \end{itemize}
 
-\subsection{Stage 2: Fakeout | Difficulty: 3rd Grade}
+\subsection{Fakeout | Difficulty: Third Grade}
 
-This stage introduces the idea of not using cookies. When the player
+This stage introduces the idea of not using cookies as instructed. When the player
 walks up to the cookie monster, he claims that he is the biggest
-snickerdoodle fan in the world, and he wants you to give him a
-snickerdoodle. He gives you instructions on how to make a
-snickerdoodle. However, behind and around the cookie monster there are
+peanut butter cookie fan in the world, and he wants you to give him a
+peanut butter cookie. He gives you instructions on how to make a
+peanut butter cookie. However, behind and around the cookie monster there are
 signs proclaiming his love for oatmeal raisin cookies. The cookie
 monster only lets you pass if you give him a oatmeal raisin cookie,
-and will reject your cookie if you give him a snickerdoodle.
+and will reject your cookie if you give him a peanut better cookie. 
+
+\subsubsection{Learning Objectives}
+
+\begin{itemize}
+  \item Web exploitations often include disobeying instructions given
+    to the website
+  \item Knowing background information about the website (such as
+    programming language, database format, etc) can provide powerful
+    insight into it's vulnerabilities
+  \item The client cannot be trusted to provide 'safe' input
+  \item Basic \textit{admin = true} type exploitation on simple sites
+\end{itemize}
+
+\subsubsection{Learning Significance}
+
+\begin{itemize}
+  \item Almost every exploit comes from a user not obeying the
+    instructions of the server
+  \item Websites that use cookies have to be incredible careful with
+    how they encode / encrypt the data
+  \item This is a similar setup to SQL injection, a classic example of
+    web exploitation
+\end{itemize}
+
+\subsection{MITM (Monster in the Middle) | Difficulty: 5th Grade}
+
+When the player approaches the cookie monster, the cookie monster wont
+give him any information about how to pass. However, he can watch
+other people go through with the correct cookies. Luckly, there is a
+empty shell of a cookie monster, and the player can setup another
+stoping point for the automated visitors to go through. The visitors
+think that he is the monster, and gives the player the cookie when
+they ask. Using the cookie given to him, he can then go to the
+\textit{real} cookie monster with the correct receipie and pass the
+stage.
+
+\subsubsection{Learning Objectives}
+
+\begin{itemize}
+  \item Concepts behind man in the middle attacks
+  \item Critical thinking regarding obtaining authentication tokens
+  \item Realize the importance of cryptography as those keys are
+    introduced.
+\end{itemize}
+
+\subsubsection{Learning Significance}
+
+\begin{itemize}
+  \item Most people understand that HTTPS is important, but this
+    starts a great seed of \textit{why} it is important
+  \item It helps students realize the importance of trust in a
+    security enviorment
+\end{itemize}
+
+\subsection{Advanced MITM | Difficulty: 5th Grade}
+
+After your shenanagins with setting up your fake outpost, the monster
+and the visitors decided to get tricky on you. The monster and the
+visitors set up a strategy of shifting around the ingredients in the
+recipe so you don't know what cookie to make. 
 
 \end{document}
