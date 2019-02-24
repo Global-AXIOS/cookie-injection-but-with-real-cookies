@@ -1,66 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ing.tscn" type="PackedScene" id=3]
 [ext_resource path="res://furnace.png" type="Texture" id=4]
 [ext_resource path="res://Furnace.gd" type="Script" id=5]
-[ext_resource path="res://bullet.png" type="Texture" id=6]
+[ext_resource path="res://FurnaceParticles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://PxPlus_IBM_MDA.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=10]
-
-[sub_resource type="Gradient" id=5]
-
-offsets = PoolRealArray( 0, 0.564972, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.915254, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=6]
-
-flags = 4
-gradient = SubResource( 5 )
-width = 2048
-
-[sub_resource type="ParticlesMaterial" id=7]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 5.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 180.0
-flatness = 0.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 322.73
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 1.0
-scale_random = 0.0
-color_ramp = SubResource( 6 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Animation", "Damping", "Emission Shape", "Resource", "Scale", "Trail" ]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -248,28 +197,10 @@ texture_normal = ExtResource( 4 )
 script = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="Particles2D" type="Particles2D" parent="Furnace" index="0"]
+[node name="Particles2D" parent="Furnace" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 24, 19 )
-emitting = false
-amount = 4
-lifetime = 1.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 7 )
-texture = ExtResource( 6 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures" ]
+_sections_unfolded = [ "Textures", "Transform" ]
 
 [node name="OvenLabel" type="RichTextLabel" parent="." index="8"]
 
@@ -335,13 +266,14 @@ _sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
 
 [node name="enemy" parent="." index="10" instance=ExtResource( 8 )]
 
+editor/display_folded = true
 position = Vector2( 971.054, 1023.89 )
 mode = 1
 _sections_unfolded = [ "Collision", "Pause", "Pickable" ]
 
-[node name="Particles2D" parent="enemy" index="8"]
+[node name="Particles2D" parent="enemy" index="8" instance=ExtResource( 6 )]
 
-_sections_unfolded = [ "Process Material", "Textures", "Transform" ]
+position = Vector2( -23, 0 )
 
 [node name="sound_explode" parent="enemy" index="10"]
 
