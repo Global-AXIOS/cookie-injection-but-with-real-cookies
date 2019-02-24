@@ -54,23 +54,28 @@ var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
 #var current_dialogue = null
 
-var text_list = [["", "Muahahaha!!!!", "I am THE COOKIE MONSTER!", "Give ME a cookie with 3 CHOCOLATE CHIPS", "NOW!!!!!"],
-["WOW!!!", "COOKIE is DELICIOUS", "MANY THANKS. HERE'S THE CRUMBS AS A REWARD", "OH, YOU MAY ALSO PASS!"],
-["BLECH!!!", "DISGUSTING", "TRY AGAIN WEAKLING"],
-["YOU CAN PASS", "NOW LEAVE ME TO EAT, BEFORE I CHANGE MY APPETITE!"]]
+var text_list = [["Muahahaha!!!!", "WELCOME TO MY BRIDGE!", "PAY ME OATMEAL AND CHOCOLATE CHIP COOKIE", "NOW!!!"],
+["THANK YOU!!!", "COOKIE IS DELICIOUS", "PLEASE COME AGAIN, MORE COOKIES BETTER"],
+["BLECH!!!", "DISGUSTING", "YOU CALL THIS A COOKIE!?!?"],
+["YOU MAY PASS", "NOW I WILL EAT BETTER COOKIE!", "DO NOT TELL OTHERS MY SECRET COOKIE LOVE"]]
 onready var monster = get_parent().get_node("enemy")
 
 
 var dialog_state = -1
 
-var has_cookie = false
+var has_cookie_real = false
+var has_cookie_fake = false
 
 func _ready():
 	set_process_input(true)
 
-func pass_test_one(l):
-	print("Pass Test One: ", l[0] == 3 && l[1] == 0 && l[2] == 0 && l[3] == 0)
-	return l[0] == 3 && l[1] == 0 && l[2] == 0 && l[3] == 0
+func pass_test_two_real(l):
+	print("Pass Test Two: ", l[0] == 0 && l[1] > 0 && l[2] == 0 && l[3] == 0)
+	return l[0] == 0 && l[1] > 0 && l[2] == 0 && l[3] == 0
+
+func pass_test_two_fake(l):
+	print("Pass Test Two: ", l[0] > 0 && l[1] == 0 && l[2] > 0 && l[3] == 0)
+	return l[0] > 0 && l[1] == 0 && l[2] > 0 && l[3] == 0
 
 
 func get_cookie_values():
@@ -89,32 +94,42 @@ func change_state(state):
 	
 	match state:
 		-1:
+			# Beginning state
 			dialog_state = 0
 			text.set_text(text_list[dialog_state])
 		0:
-			# Good path, finished
-			if has_cookie:
+			# Fake Path, 
+			if has_cookie_fake and not has_cookie_real:
 				dialog_state = 1
 				text.set_text(text_list[dialog_state])
-				monster.add_collision_exception_with(self)
-			# Bad path, needs to try again
-			else:
-				dialog_state = 2
+				# monster.add_collision_exception_with(self)
+			# Secret Path
+			elif not has_cookie_fake and has_cookie_real:
+				dialog_state = 3
 				text.set_text(text_list[dialog_state])
+				monster.add_collision_exception_with(self)
 		1:
-			# Finished, don't ask me again
-			dialog_state = 3
-			text.set_text(text_list[dialog_state])
-		2:
-			# Made good cookie again
-			if has_cookie:
+			if has_cookie_fake and not has_cookie_real:
 				dialog_state = 1
 				text.set_text(text_list[dialog_state])
-				monster.add_collision_exception_with(self)
-			# Bad path, needs to try again, again!!!!
-			else:
-				dialog_state = 2
+				# monster.add_collision_exception_with(self)
+			# Secret Path
+			elif not has_cookie_fake and has_cookie_real:
+				dialog_state = 3
 				text.set_text(text_list[dialog_state])
+				monster.add_collision_exception_with(self)
+		2:
+			# Made cookie good again
+			if has_cookie_fake and not has_cookie_real:
+				dialog_state = 1
+				text.set_text(text_list[dialog_state])
+				# monster.add_collision_exception_with(self)
+			# Secret Path
+			elif not has_cookie_fake and has_cookie_real:
+				dialog_state = 3
+				text.set_text(text_list[dialog_state])
+				monster.add_collision_exception_with(self)
+		
 		3:
 			# Do nothing, keep don't asking me again.
 			pass
@@ -134,8 +149,9 @@ func _input(event):
 			IN_DIALOGUE = true
 			change_state(dialog_state)
 			dialog.show()
-			text.draw_oneshot()
+			#text._input(event)
 		elif text.is_finished():
+			# text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
 			dialog.hide()
 			IN_DIALOGUE = false
 
@@ -309,4 +325,6 @@ func _integrate_forces(s):
 
 func _on_Furnace_pressed():
 	get_parent().get_node("Furnace").release_focus()
-	has_cookie = pass_test_one(get_cookie_values())
+	has_cookie_fake = pass_test_two_fake(get_cookie_values())
+	has_cookie_real = pass_test_two_real(get_cookie_values())
+	
