@@ -96,6 +96,7 @@ func change_state(state):
 			if has_cookie:
 				dialog_state = 1
 				text.set_text(text_list[dialog_state])
+				monster.add_collision_exception_with(self)
 			# Bad path, needs to try again
 			else:
 				dialog_state = 2

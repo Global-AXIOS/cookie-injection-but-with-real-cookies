@@ -241,7 +241,7 @@ tracks/0/keys = {
 custom_solver_bias = 0.5
 length = 20.0
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="RigidBody2D" index="0"]
 
 position = Vector2( 390, 180 )
 input_pickable = false
