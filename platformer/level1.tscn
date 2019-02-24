@@ -19,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
 
-[node name="stage" type="Node"]
+[node name="stage" type="Node" index="0"]
 
 _sections_unfolded = [ "Pause" ]
 
@@ -200,7 +200,6 @@ _sections_unfolded = [ "Textures" ]
 [node name="Particles2D" parent="Furnace" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 24, 19 )
-_sections_unfolded = [ "Textures", "Transform" ]
 
 [node name="OvenLabel" type="RichTextLabel" parent="." index="8"]
 
@@ -275,7 +274,7 @@ _sections_unfolded = [ "Collision", "Pause", "Pickable" ]
 
 position = Vector2( -23, 0 )
 
-[node name="sound_explode" parent="enemy" index="10"]
+[node name="sound_explode" parent="enemy" index="11"]
 
 _sections_unfolded = [ "Material" ]
 

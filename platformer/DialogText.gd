@@ -41,6 +41,16 @@ func _input(event):
 #	# Update game logic here.
 #	pass
 
+func draw_oneshot():
+	if get_visible_characters() > get_total_character_count():
+		if page < dialog_text.size() - 1:
+			page += 1
+			set_bbcode(dialog_text[page])
+			set_visible_characters(0)
+		else:
+			get_parent().hide()
+	else:
+		set_visible_characters(get_total_character_count() + 1)
 
 func _on_Timer_timeout():
 	#print("Time Executed")
