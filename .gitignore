@@ -8,3 +8,9 @@ export_presets.cfg
 .mono/
 
 \.DS_Store
+
+docs/whitepaper\.aux
+
+docs/whitepaper\.log
+
+docs/whitepaper\.pdf
