@@ -13,6 +13,8 @@ func _ready():
 	pass
 func p():
 	set_bbcode("[right]" + the_name + ": " + str(t) + "[/right]")
+	self.get_parent().get_node("plus").release_focus()
+	self.get_parent().get_node("minus").release_focus()
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
@@ -20,14 +22,16 @@ func p():
 
 
 func _on_plus_pressed():
-	print("plus pressed")
-	t = min(t + 1, 5)
-	p()
+	if Input.is_action_just_pressed("mouse_left") || true:
+		print("plus pressed")
+		t = min(t + 1, 5)
+		p()
 	pass # replace with function body
 
 
 func _on_minus_pressed():
-	print("minus pressed")
-	t = max(t - 1, 0)
-	p()
+	if Input.is_action_just_pressed("mouse_left") || true:
+		print("minus pressed")
+		t = max(t - 1, 0)
+		p()
 	pass # replace with function body
