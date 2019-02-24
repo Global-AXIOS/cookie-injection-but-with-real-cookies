@@ -12,7 +12,7 @@ func _ready():
 	p()
 	pass
 func p():
-	set_bbcode(the_name + ": " + str(t))
+	set_bbcode("[right]" + the_name + ": " + str(t) + "[/right]")
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
