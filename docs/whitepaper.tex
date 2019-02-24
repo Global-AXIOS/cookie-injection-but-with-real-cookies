@@ -22,8 +22,7 @@ $6^{th}$ grades through the analogy of actual cookies. The game is
 broken down into several \textbf{stages}, each teaching a important
 lesson in cybersecurity. This allows us to explore cookie injection,
 MITM attacks, encryption, SQL/template injection and other security
-exploitations. At each stage, the player must bake a cookie that is
-pleasing to the \textbf{cookie monster}. In this scenario, the player
+exploitations in a fun and engaging manner. At each stage, the player must bake a cookie that pleases the \textbf{cookie monster}. In this scenario, the player
 represents a computer client, while the cookie monster plays the role
 an authentication server. Upon proper presentation of a cookie, the
 player can move on to the next stage. All external assets and code is
@@ -50,9 +49,8 @@ Another part of the scope is that this game can be as open as desired
 by the publishers. We used no code or assets that put limitation or
 restriction on the game, which means that students and developers can
 fork, update, and improve upon \textit{Cookie Injection but with Real
-Cookies}. This will hopefully allow for additional educational purpose
-after the concepts in the levels have been thoroughly explored by the
-player.
+Cookies}. This will allow for additional educational purpose, as the players
+and educators can explore the source code, modifying as they wish.
 
 \section{Example Stages}
 
@@ -61,21 +59,21 @@ the stages, merely a subset that we find notable for reaching a
 landmark or obtaining a learning objective. Further development work
 should be done on developing more stages.
 
-The \textbf{difficulty} defines at what approximate age will the stage
-be trivial. This is not at all the minimum age to be able to accomplish
+The \textbf{difficulty} defines the approximate age that the stage
+will be easily solvable. This is not at all the minimum age to be able to accomplish
 the level with understanding, a much younger child will be able to do
 this, just less trivially. These are also our best estimates, not a
 scientific analysis of difficulty.
 
-Each stage has an \textbf{learning objective}, which is the goal that
-the level is trying to teach. The objective is cybersecurity concept /
-idea that the player should obtain after completing the level.
+Each stage has a \textbf{learning objective}, which is the goal that
+the level is trying to teach. The objective is a cybersecurity concept or
+idea that the player should have a basic understanding for after completing the level.
 
 Additionally, each stage has a \textbf{learning significance},
 explaining why the concept taught is important in the world of
 security. While sometimes these will feel far fetched from the basic
 actions preformed by the user, the important part is giving the player
-some concept (even if it is subconscious) about the important security
+some \textbf{concept} (even if it is subconscious) about the important security
 issues facing the web today.
 
 \subsection{Introduction | Difficulty: Third Grade}
@@ -83,8 +81,7 @@ issues facing the web today.
 Stage one is the most basic of stages. The player simply goes up to
 the cookie monster, who then displays a message requesting a chocolate
 chip cookie. The player has to go to the oven and make a simple
-chocolate chip cookie, which he can give to the cookie monster to pass
-through the stage.
+chocolate chip cookie, which he can then give to the cookie monster to pass the stage.
 
 \subsubsection{Learning Objective}
 
@@ -100,77 +97,82 @@ logging into a website with no web exploitation used.
 \subsubsection{Learning Significance}
 
 \begin{itemize}
-  \item Introduce the idea of the client server model
-  \item Introduce the idea of payloads from the client to the server,
+  \item Introduce the idea of the client server model. The player is the client
+  providing the information, and the monster (server) is authenticating on that information.
+  \item Introduce the idea of payloads from the client to the server. A payload
+  is a cookie that can have a different number of ingredients.
     and the server preforming actions based of that request
-  \item Introduce the idea of what an API call is
+  \item Introduce the idea of what an API call is.
 \end{itemize}
 
 \subsection{Fakeout | Difficulty: Third Grade}
 % successful cookie is only oatmeal, he asks for raisens and chocolate chips
 This stage introduces the idea of not using cookies as
-instructed. When the player walks up to the cookie monster, he claims
+instructed. When the player walks up to the cookie monster, the cookie monster claims
 that he is the biggest chocolate chip and raisin fan in the world, and
-he wants you to give him a chocolate chip and raisin. However, behind
+he wants you to give him a chocolate chip and raisin cookie. However, behind
 and around the cookie monster there are signs proclaiming his love for
 oatmeal cookies. The cookie monster only lets you pass if you give him
-a oatmeal cookie, and will reject your cookie if you give him a
-chocolate chip rasin cookie.
+a oatmeal cookie, and will appreciate your cookie if you give him a
+chocolate chip rasin cookie, but not let you pass.
 
 \subsubsection{Learning Objectives}
 
 \begin{itemize}
-  \item Web exploitations often include disobeying instructions given
-to the website
+  \item Web exploitations often include disobeying instructions given by the website.
+  For this stage, the player (client) needs to disobey the monster's instructions in order
+  to pass the stage.
   \item Knowing background information about the website (such as
-programming language, database format, etc) can provide powerful
-insight into it's vulnerabilities
-  \item The client cannot be trusted to provide 'safe' input
-  \item Basic \textit{admin = true} type exploitation on simple sites
+programming language, database format, framework, etc) can provide powerful
+insight into it's vulnerabilities. This stage requires the player to think critically about
+the monster's environment to determine what the monster really wants.
+  \item The client cannot be trusted to provide `safe' input. This is the first example
+  of actual exploitation. The monster should have had stricter authentication requirements
+  so that this exploitation could not have so easily occurred.
+  \item Basic \textit{admin = true} type exploitation on simple sites (Cookie Injection).
 \end{itemize}
 
 \subsubsection{Learning Significance}
 
 \begin{itemize}
   \item Almost every exploit comes from a user not obeying the
-    instructions of the server
-  \item Websites that use cookies have to be incredible careful with
-    how they encode / encrypt the data
+    instructions of the server.
+  \item Websites that use cookies have to be incredibly careful with
+    how they encode / encrypt the data.
   \item This is a similar setup to SQL injection, a classic example of
-    web exploitation
+    providing input that is malicious.
 \end{itemize}
 
 \subsection{MITM (Monster in the Middle) | Difficulty: 5th Grade}
 
-When the player approaches the cookie monster, the cookie monster wont
-give him any information about how to pass. However, he can watch
+When the player approaches the cookie monster, the cookie monster will
+give him any useful information about how to pass. However, he can watch
 other people go through with the correct cookies. Luckily, there is a
 empty shell of a cookie monster, and the player can setup another
 stopping point for the automated visitors to go through. The visitors
-think that he is the monster, and gives the player the cookie when
-they ask. Using the cookie given to him, he can then go to the
+think that he is the monster, and they give the player their cookie when
+when asked. Using the cookie given to the player, the player can then go to the
 \textit{real} cookie monster with the correct recipe and pass the
 stage.
 
 \subsubsection{Learning Objectives}
 
 \begin{itemize}
-  \item Concepts behind man in the middle attacks
-  \item Critical thinking regarding obtaining authentication tokens
-  \item Realize the importance of cryptography as those keys are
-    introduced.
+  \item Concepts behind man in the middle attacks. The player acts as a
+  \textit{Monster in the Middle} in order to view the recipe of the privileged cookies.
+  \item Critical thinking regarding obtaining authentication tokens.
+  \item Prompt the question: How can a client's information be secured in transit to server?
 \end{itemize}
 
 \subsubsection{Learning Significance}
 
 \begin{itemize}
   \item Most people understand that HTTPS is important, but this
-    starts a great seed of \textit{why} it is important
-  \item It helps students realize the importance of trust in a
-    security environment
+    plants a seed of \textit{why} it is important. Why is it so easy to
+    masquerade as the monster? 
+  \item It helps students realize the concepts and importance of trust in a
+    security environment. 
 \end{itemize}
-
-\pagebreak
 
 \subsection{Advanced MITM | Difficulty: 5th Grade}
 
@@ -179,12 +181,12 @@ and the visitors decided to get tricky on you. The monster and the
 visitors set up a strategy of shifting around the ingredients in the
 recipe so you don't know what cookie to make. Your job is to
 intercepts the messages that determine how they are going to shuffle
-the ingredients, and re-create the cookies based of the mapping and
-the encrypted cookie recipes that travel with the other visitors.
+the ingredients, and re-create the cookies based off of the mapping and
+the encrypted cookie recipes that travel with other visitors.
 
-The shift looks like
-this: %penut -> raisens, raisens -> chocolate chip -> oatmeal ->
-% raisens
+A shift could look like
+this: %peanut -> raisins, raisins -> chocolate chip -> oatmeal ->
+% raisins
 \begin{table}[h]
 \centering
 \begin{tabular}{l|l}
@@ -198,27 +200,30 @@ Chocolate Chip & Oatmeal        \\
 \subsubsection{Learning Objectives}
 
 \begin{itemize}
-  \item The concepts and ideas of encryption
-  \item Re-enforcing MITM attacks
-  \item Introduce the idea of sources of truth (Certificate
-    Authorities)
+  \item The concepts and ideas of encryption through the introduction of a simple
+  substitution cipher.
+  \item Re-enforcing MITM attacks and introduce  methods used to prevent them.
+  \item Re-enforce the idea of sources of truth (Certificate
+    Authorities, Signing Chains)
 \end{itemize}
 
 \subsubsection{Learning Significance}
 
 \begin{itemize}
   \item This semi-advanced problem will help bridge the gap between
-    theoretical games and actual security best practices
-  \item Prepare them for problems they will see in middle/high school CTFs
+    theoretical games and actual security best practices and exploitations.
+  \item Prepare students for problems they will see in middle/high school CTFs.
+  \item The sharing of a substitution cipher among parties introduces the concept of
+  a source of true and a shared symmetric key.
 \end{itemize}
 
 \section{Plan to MVP}
 
-This section is dedicated to the process the game would have to go
+This section is dedicated to the process the game would go
 though to get from where it is now to release with full
-potential. Granted, the time estimates may be way off (probably high)
-due to the lack of our game development experience, however any plan is
-better than no plan.
+potential. Granted, the time estimates may be off since
+we are inexperienced with planning long-term projects, however these estimates
+are taken from a conservative standpoint.
 
 \subsection{Overview}
 
@@ -228,13 +233,13 @@ better than no plan.
 Full implementation of necessary UI & 35                                                 \\ \hline
 Sound Design                        & 25                                                 \\ \hline
 Asset Redesign                      & 30                                              \\ \hline
-Level Generation                    & 40                                                 \\ \hline
+Level Generation and Design         & 70                                                 \\ \hline
 Tie-up                              & 30                                               \\ \hline
-\textbf{Total}                      & \textbf{160}                                              \\ 
+\textbf{Total}                      & \textbf{190}                                              \\ 
 \end{tabular}
 \end{table}
 
-I will now go into further detail of explaining the estimates and the
+We will now go into further detail of explaining the estimates and the
 sub-tasks that add up to that amount
 
 \subsection{Full implementation of necessary UI}
@@ -248,11 +253,12 @@ of actual UI design is yet to be done. There still remains:
   \item Pause menu
   \item Clean transition level buttons
   \item Selection of + and - can be improved
+  \item Visualization of a Cookie
 \end{itemize}
 
-I figured that most of those things would take a handful of hours for
-someone to create and implement fully, so 35 hours is a reasonable
-estimate.
+We figure that most of those things would take a handful of hours for
+someone knowledgeable in the Godot engine to create and implement fully, 
+so 35 hours is a reasonable estimate.
 
 \subsection{Sound Design}
 
@@ -270,32 +276,34 @@ These include, but are not limited to
   \item Walking
 \end{itemize}
 
+There are a lot of opensource sound assets that we discovered. We hope
+that these assets could be used for the final development of the game.
+
 \subsection{Asset Redesign}
 
-While we where creating the game, we made use of (MIT Licensed) assets
+While we were creating the game, we made use of MIT Licensed assets
 that came with the Godot engine. The ``cookie monster'' is actually
-just a large enemy from the platfromer demo, for example. A team would
-have to create assets for at least the player and the cookie
-monster. It would be ideal to get the license for the sesame street
-cookie monster to use in our game, although I am not sure what the
-details of that would be.
+just a large enemy from the platformer demo. The player and its animations 
+is a character asset found on the opensource Godot Asset Library. A team would have to create assets for at least the 
+player and the cookie monster. It would be ideal to get the license 
+for the sesame street cookie monster to use in our game, although we am not sure how that
+would work out.
 
 \subsection{Level Generation}
 
 We did not have time to make nearly the number of levels that would be
-ideal for a published game. Although, we do have a template and pretty
-good scenes that allow for quick duplication and modification to
+ideal for a published game. Although, we do have a template and scenes that allow for quick duplication and modification to
 create new levels. The length of time spent on this will be entirely
-up to the development team, depending on the number of lesions that
-they could fit in.
-
+up to the development team, and the educators on the project. 
+The learning objectives for each level will need to be tested and discussed,
+and a overall educational flow / objective would need to be created.
 \subsection{Tie-up}
 
 Additionally to the tasks above, there would be a non-trivial amount
 of time to tie everything up after the individual pieces where
 created. This could be a very quick process if someone is familiar
 with the Godot engine, or other similar game engines. You can also
-think of this as time to market/publish and work with partners and
+think of this as time to market/publish and work with partners / educators and
 deployment.
 
 \end{document}
