@@ -52,35 +52,42 @@ var bullet = preload("res://bullet.tscn")
 
 var floor_h_velocity = 0.0
 onready var enemy = load("res://enemy.tscn")
-
-onready var dialogue = load("res://DialogBox.tscn")
-
-var current_dialog = null
-
 #var current_dialogue = null
 
 func _ready():
 	set_process_input(true)
+	var text = get_node("camera/Dialog/text")
+	text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
+	
 
 func _input(event):
-	if Input.is_action_pressed("ui_interact") and not current_dialog:
-		print("UI INTERACT")
-		var new_dialog = dialogue.instance()
-		new_dialog.set_text(["MEMES", "REEEE", "OKKKK"])
-		get_tree().get_root().add_child(new_dialog)
-		new_dialog.position = self.position
-		new_dialog.z_index = self.z_index + 1
-		current_dialog = new_dialog
-		print(new_dialog.position)
+	if Input.is_action_just_pressed("ui_interact"):
+		var text = get_node("camera/Dialog/text")
+		var dialog = get_node("camera/Dialog")
 		
-
-func _draw():
-	if current_dialog:
-		current_dialog.position = self.position
-		print(self.position)
+		if not IN_DIALOGUE:
+			IN_DIALOGUE = true
+			dialog.show()
+			text._input(event)
+		elif text.is_finished():
+			text.set_text(["", "This is some text", "MMemesMemesMemesMemesemes", "The last BOX"])
+			dialog.hide()
+			IN_DIALOGUE = false
+	
 
 
 func _physics_process(delta):
+	#print(get_node("camera/Dialog/text").dialog_text)
+	#var camera = get_node("camera")
+	#print(camera)
+	#print(get_node("camera/Dialog").get_viewport_transform(), " ", self.position)
+	#if current_dialog:
+	#	print(current_dialog.position)
+	#var camera = get_node("camera")
+	#var new_pos = camera.get_camera_screen_center()
+	
+	#if current_dialog:
+	#	current_dialog.position = new_pos
 	#if current_dialogue != null:
 	#	print(self.position, current_dialogue.position)
 	

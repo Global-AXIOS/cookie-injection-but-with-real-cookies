@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://parallax_bg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
 
 [node name="stage" type="Node" index="0"]
 
@@ -37,20 +36,28 @@ __meta__ = {
 [node name="player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 251.684, 1045.6 )
-_sections_unfolded = [ "Visibility" ]
+z_index = 10
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Polygon2D" parent="player" index="9" instance=ExtResource( 3 )]
+[node name="camera" parent="player" index="2"]
 
-position = Vector2( -233.684, -655.6 )
+_sections_unfolded = [ "Z Index" ]
 
-[node name="parallax_bg" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Dialog" parent="player/camera" index="0"]
+
+visible = false
+_sections_unfolded = [ "Material", "Mouse", "Visibility" ]
+
+[node name="parallax_bg" parent="." index="2" instance=ExtResource( 3 )]
 
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="enemy" parent="." index="3" instance=ExtResource( 5 )]
+[node name="enemy" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 780, 1010 )
 mode = 1
 _sections_unfolded = [ "Collision", "Pause", "Pickable" ]
 
 
+[editable path="player"]
+[editable path="player/camera/Dialog"]

@@ -13,17 +13,26 @@ func _ready():
 	set_bbcode(dialog_text[page])
 	set_visible_characters(-1)
 	set_process_input(true)
+	
+
+func set_text(text):
+	dialog_text = text
+	page = 0
+	
+func is_finished():
+	print(page, " ", dialog_text.size())
+	return page == dialog_text.size() - 1 and get_total_character_count() == dialog_text[page].length()
 
 func _input(event):
-	if Input.is_action_pressed("ui_interact"):
+	if Input.is_action_pressed("ui_interact") and get_parent().is_visible():
 		# print("Pressed")
 		if get_visible_characters() > get_total_character_count():
 			if page < dialog_text.size() - 1:
 				page += 1
 				set_bbcode(dialog_text[page])
 				set_visible_characters(0)
-			#else:
-			#	get_parent().queue_free()
+			else:
+				get_parent().hide()
 		else:
 			set_visible_characters(get_total_character_count() + 1)
 
