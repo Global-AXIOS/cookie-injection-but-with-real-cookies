@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://DialogText.gd" type="Script" id=1]
+[ext_resource path="res://PxPlus_IBM_MDA.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://DialogText.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 
@@ -8,6 +9,14 @@ flags = 0
 region = Rect2( 0, 0, 0, 0 )
 margin = Rect2( 0, 0, 0, 0 )
 filter_clip = false
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 35
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="Dialog" type="NinePatchRect"]
 
@@ -43,6 +52,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
 bbcode_text = ""
@@ -55,8 +65,8 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-script = ExtResource( 1 )
-_sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Grow Direction", "custom_colors", "custom_fonts", "custom_styles" ]
 
 [node name="Timer" type="Timer" parent="." index="1"]
 
