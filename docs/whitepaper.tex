@@ -16,12 +16,12 @@
 
 \begin{abstract}
   
-\textit{Cookie Injection but with Real Cookies} is a game designed to
-teach the basics of web exploitation to $3^{rd}$ through $6^{th}$
-grades through the analogy of actual cookies. The game is broken down
-into several \textbf{stages}, each teaching a important lesson in
-cybersecurity. This allows us to explore cookie injection, MITM
-attacks, encryption, SQL/template injection and other security
+\textit{Cookie Injection but with Real Cookies} is a puzzele game
+designed to teach the basics of web exploitation to $3^{rd}$ through
+$6^{th}$ grades through the analogy of actual cookies. The game is
+broken down into several \textbf{stages}, each teaching a important
+lesson in cybersecurity. This allows us to explore cookie injection,
+MITM attacks, encryption, SQL/template injection and other security
 exploitations. At each stage, the player must bake a cookie that is
 pleasing to the \textbf{cookie monster}. In this scenario, the player
 represents a computer client, while the cookie monster plays the role
@@ -127,8 +127,34 @@ and will reject your cookie if you give him a peanut better cookie.
     web exploitation
 \end{itemize}
 
-\subsection{MITM (Monster in the Middle)}
+\subsection{MITM (Monster in the Middle) | Difficulty: 5th Grade}
 
+When the player approaches the cookie monster, the cookie monster wont
+give him any information about how to pass. However, he can watch
+other people go through with the correct cookies. Luckly, there is a
+empty shell of a cookie monster, and the player can setup another
+stoping point for the automated visitors to go through. The visitors
+think that he is the monster, and gives the player the cookie when
+they ask. Using the cookie given to him, he can then go to the
+\textit{real} cookie monster with the correct receipie and pass the
+stage.
 
+\subsubsection{Learning Objectives}
+
+\begin{itemize}
+  \item Concepts behind man in the middle attacks
+  \item Critical thinking regarding obtaining authentication tokens
+  \item Realize the importance of cryptography as those keys are
+    introduced.
+\end{itemize}
+
+\subsubsection{Learning Significance}
+
+\begin{itemize}
+  \item Most people understand that HTTPS is important, but this
+    starts a great seed of \textit{why} it is important
+  \item It helps students realize the importance of trust in a
+    security enviorment
+\end{itemize}
 
 \end{document}
