@@ -6,8 +6,8 @@
 - [x] Clean up basic scene
 - [x] *Create a dialog screen
 - [x] Create cookie design elements 
-- [ ] Design Intro level
-- [ ] Design Intermediante level
+- [x] Design Intro level
+- [x] Design Intermediante level
 - [ ] Desing Advanced level
 
 ## Writeup
