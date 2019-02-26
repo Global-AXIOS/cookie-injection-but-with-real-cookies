@@ -1,7 +1,7 @@
 # cookie-injection-but-with-real-cookies
 
 This was a Hack CU V project completed by myself and [Fisher
-Darling](https://github.com/fisherdarling) This project won the "Most
+Darling](https://github.com/fisherdarling). This project won the "Most
 Random Hack". The goal of this project is to teach children from the
 3rd to 6th grade about what it means to think in the cybersecurity
 mindset. It uses the idea of the player(client) delivering a payload
