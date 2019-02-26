@@ -1,13 +1,13 @@
 # cookie-injection-but-with-real-cookies
 
 This was a Hack CU V project completed by myself and [Fisher
-Darling](https://github.com/fisherdarling). The goal of this project
-is to teach children from the 3rd to 6th grade about what it means to
-think in the cybersecurity mindset. It uses the idea of the
-player(client) delivering a payload (a cookie) to the server (a cookie
-monster). The player has to use cybersecurity concepts like analyzing
-the enviorment, Man in the middle attacks, etc to figure out how to
-pass the cookie monster.
+Darling](https://github.com/fisherdarling) This project won the "Most
+Random Hack". The goal of this project is to teach children from the
+3rd to 6th grade about what it means to think in the cybersecurity
+mindset. It uses the idea of the player(client) delivering a payload
+(a cookie) to the server (a cookie monster). The player has to use
+cybersecurity concepts like analyzing the enviorment, Man in the
+middle attacks, etc to figure out how to pass the cookie monster.
 
 ## Techincal details
 
